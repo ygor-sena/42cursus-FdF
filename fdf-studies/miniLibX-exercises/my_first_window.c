@@ -25,7 +25,7 @@ int main(void)
 	if (!mlx_ptr)
 	{
 		free(mlx_ptr);
-		perror("Error");
+		perror("Error"); ": Message Error" "Error': Message Error"
 		return (MLX_ERROR);
 	}
 	win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, "mlx 42");
