@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:31:03 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/08/18 21:22:59 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/08/19 00:16:21 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int	main(void)
 		perror("Error");
 		return (MLX_ERROR);
 	}
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "mlx 42");
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "album indie");
 	if (!data.win_ptr)
 	{
 		free(data.win_ptr);

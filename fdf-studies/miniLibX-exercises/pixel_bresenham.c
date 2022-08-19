@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:04:47 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/08/18 21:28:51 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/08/19 21:23:40 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ typedef struct s_img
 {
 	void	*mlx_img;
 	char	*addr;
-	int		bpp; /* bits per pixel */
+	int		bpp;
 	int		line_len;
 	int		endian;
 }	t_img;
 
 typedef struct s_line
 {
-	t_point start;
+	t_point	start;
 	t_point	end;
-	int color;
+	int		color;
 }	t_line;
 
 typedef struct s_bresenham
@@ -49,49 +49,11 @@ typedef struct s_bresenham
 	int	ye;
 }	t_bresenham;
 
-void img_pix_put(t_img *img, int x, int y, int color)
-{
-	char	*pixel;
-
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(int *)pixel = color;
-}
-
-t_bresenham	set_variables(t_line line)
-{
-	t_bresenham	b;
-
-	b.x0 = 0;
-	b.y0 = 0;
-	b.dx = line.end.x - line.start.x;
-	b.dy = line.end.y - line.start.y;
-	b.dx1 = abs(b.dx);
-	b.dy1 = abs(b.dy);
-	b.px = 2 * b.dy1 - b.dx1;
-	b.py = 2 * b.dx1 - b.dy1;
-	b.xe = 0;
-	b.ye = 0;
-	return (b);
-}
-
-void	plot_x(t_img *img, t_bresenham *b, t_line line);
-void	plot_y(t_img *img, t_bresenham *b, t_line line);
-
-void	set_plot_ref(t_bresenham *b, t_point start, int xe, int ye)
-{
-	if (xe != 0)
-	{
-		b->x0 = start.x;
-		b->y0 = start.y;
-		b->xe = xe;
-	}
-	else
-	{
-		b->x0 = start.x;
-		b->y0 = start.y;
-		b->ye = ye;
-	}
-}
+t_bresenham	set_variables(t_line line);
+void		set_plot_ref(t_bresenham *b, t_point start, int xe, int ye);
+void		plot_x(t_img *img, t_bresenham *b, t_line line);
+void		plot_y(t_img *img, t_bresenham *b, t_line line);
+void		img_pix_put(t_img *img, int x, int y, int color);
 
 void	bresenham(t_img *img, t_line line)
 {
@@ -116,12 +78,52 @@ void	bresenham(t_img *img, t_line line)
 	}
 }
 
+void	img_pix_put(t_img *img, int x, int y, int color)
+{
+	char	*pixel;
+
+	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(int *)pixel = color;
+}
+
+t_bresenham	set_variables(t_line line)
+{
+	t_bresenham	b;
+
+	b.x0 = 0;
+	b.y0 = 0;
+	b.dx = line.end.x - line.start.x;
+	b.dy = line.end.y - line.start.y;
+	b.dx1 = abs(b.dx);
+	b.dy1 = abs(b.dy);
+	b.px = 2 * b.dy1 - b.dx1;
+	b.py = 2 * b.dx1 - b.dy1;
+	b.xe = 0;
+	b.ye = 0;
+	return (b);
+}
+
+void	set_plot_ref(t_bresenham *b, t_point start, int xe, int ye)
+{
+	if (xe != 0)
+	{
+		b->x0 = start.x;
+		b->y0 = start.y;
+		b->xe = xe;
+	}
+	else
+	{
+		b->x0 = start.x;
+		b->y0 = start.y;
+		b->ye = ye;
+	}
+}
+
 void	plot_x(t_img *img, t_bresenham *b, t_line line)
 {
 	int	i;
 
 	i = 0;
-	//printf("Pixel location is (%d, %d)\n", b->x0, b->y0);
 	img_pix_put(img, b->x0, b->y0, line.color);
 	while (b->x0 < b->xe)
 	{
@@ -136,7 +138,6 @@ void	plot_x(t_img *img, t_bresenham *b, t_line line)
 				b->y0 = b->y0 - 1;
 			b->px = b->px + 2 * (b->dy1 - b->dx1);
 		}
-		//printf("Pixel location is (%d, %d)\n", b->x0, b->y0);
 		img_pix_put(img, b->x0, b->y0, line.color);
 		i++;
 	}
@@ -148,7 +149,6 @@ void	plot_y(t_img *img, t_bresenham *b, t_line line)
 
 	i = 0;
 	img_pix_put(img, b->x0, b->y0, line.color);
-	//printf("Pixel location is (%d, %d)\n", b->x0, b->y0);
 	while (b->y0 < b->ye)
 	{
 		b->y0 = b->y0 + 1;
@@ -163,7 +163,6 @@ void	plot_y(t_img *img, t_bresenham *b, t_line line)
 			b->py = b->py + 2 * (b->dx1 - b->dy1);
 		}
 		img_pix_put(img, b->x0, b->y0, line.color);
-		//printf("Pixel location is (%d, %d)\n", b->x0, b->y0);
 		i++;
 	}
 }
