@@ -1,3 +1,9 @@
+[ABOUT MOST USED ALGORITHMS TO DRAW A LINE]
+
+What's the difference between DDA, Bresenham and Mid-point line?
+https://www.tutorialandexample.com/line-drawing-algorithm
+
+
 [ABOUT BRESENHAM]
 
 How to implement a very short Bresenham for all cases:
@@ -15,6 +21,7 @@ https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 
 Some historical context of Bresenham algorithm:
 https://www.youtube.com/watch?v=N4ZHi4VQeEg
+
 
 [ABOUT MINILIBX]
 Series of good posts from Aurelien:
