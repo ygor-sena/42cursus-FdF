@@ -37,8 +37,68 @@ $(OBJS_PATH)/%.o:	$(SRCS_PATH)/%.c
 $(LIBFT):
 					make -C ./libft
 
-test:				$(NAME)
-					./fdf test_maps/42.fdf
+1:					$(NAME)
+					./fdf maps/42.fdf
+
+2:					$(NAME)
+					./fdf maps/10-2.fdf
+
+3:					$(NAME)
+					./fdf maps/10-70.fdf
+
+4:					$(NAME)
+					./fdf maps/20-60.fdf
+
+5:					$(NAME)
+					./fdf maps/50-4.fdf
+
+6:					$(NAME)
+					./fdf maps/100-6.fdf
+
+7:					$(NAME)
+					./fdf maps/basictest.fdf
+
+8:					$(NAME)
+					./fdf maps/elem-col.fdf	
+
+9:					$(NAME)
+					./fdf maps/elem-fract.fdf
+
+10:					$(NAME)
+					./fdf maps/elem.fdf	
+
+11:					$(NAME)
+					./fdf maps/elem2.fdf
+
+12:					$(NAME)
+					./fdf maps/julia.fdf
+
+13:					$(NAME)
+					./fdf maps/mars.fdf
+
+14:					$(NAME)
+					./fdf maps/pentenegpos.fdf	
+				
+15:					$(NAME)
+					./fdf maps/plat.fdf	
+
+16:					$(NAME)
+					./fdf maps/pnp_flat.fdf		
+
+17:					$(NAME)
+					./fdf maps/pylone.fdf	
+
+18:					$(NAME)
+					./fdf maps/pyra.fdf
+
+19:					$(NAME)
+					./fdf maps/pyramide.fdf		
+				
+20:					$(NAME)
+					./fdf maps/t1.fdf	
+					
+21:					$(NAME)
+					./fdf maps/t2.fdf	
 
 clean:
 					$(RM) $(OBJS_PATH)

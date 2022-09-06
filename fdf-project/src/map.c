@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:50:29 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:38:03 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:41:48 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_scale(t_map *map)
 	area = (MLX_HEIGHT * MLX_WIDTH) / 4;
 	scale = sqrt(area / (map->length_y * map->width_x));
 	if (scale < 2)
-		return (2);
+		return (1);
 	return (scale);
 }
 

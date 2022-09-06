@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 23:12:36 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:52:06 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:10:12 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,26 @@
 # define FDF_H
 
 # include <stdio.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdint.h>
 # include <math.h>
 # include <mlx.h>
 # include "../libft/libft.h"
 # include "./events.h"
 
-# define INVALID_ARGS "Expected argument is './fdf maps/<file_name>'"
-# define INVALID_FILE "Check if file exists or if file formatting is correct"
+# define INVALID_ARGS 	"Expected argument is './fdf maps/<file_name>'"
+# define INVALID_FILE 	"Check if file exists or if file formatting is correct"
 # define INVALID_MEMORY "Couldn't allocate enough memory for map values"
-# define ERROR_MLX "Couldn't inicialize mlx_ptr"
-# define ERROR_WIN "Couldn't inicialize win_ptr"
+# define ERROR_MLX 		"Couldn't inicialize mlx_ptr"
+# define ERROR_WIN 		"Couldn't inicialize win_ptr"
 
-# define SINE_30 0.5
-# define COSINE_30 0.866025
+# define SINE_30 		0.5
+# define COSINE_30 		0.866025
 
-# define LOW_HEX_BASE "0123456789abcdef"
-# define COMMA ','
-# define SPACE ' '
-# define NEW_LINE '\n'
-# define BLUE_PIXEL "0x033DFC"
-# define WHITE_PIXEL "0xFFFFFF"
+# define LOW_HEX_BASE 	"0123456789abcdef"
+# define COMMA 			','
+# define SPACE 			' '
+# define NEW_LINE 		'\n'
+# define BLUE_PIXEL 	"0x033DFC"
+# define WHITE_PIXEL 	"0xFFFFFF"
 
 typedef struct s_img
 {
