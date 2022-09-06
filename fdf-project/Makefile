@@ -38,61 +38,61 @@ $(LIBFT):
 					make -C ./libft
 
 1:					$(NAME)
-					./fdf maps/42.fdf
+					valgrind ./fdf maps/42.fdf
 
 2:					$(NAME)
-					./fdf maps/10-2.fdf
+					valgrind ./fdf maps/10-2.fdf
 
 3:					$(NAME)
-					./fdf maps/10-70.fdf
+					valgrind ./fdf maps/10-70.fdf
 
 4:					$(NAME)
-					./fdf maps/20-60.fdf
+					valgrind ./fdf maps/20-60.fdf
 
 5:					$(NAME)
-					./fdf maps/50-4.fdf
+					valgrind ./fdf maps/50-4.fdf
 
 6:					$(NAME)
-					./fdf maps/100-6.fdf
+					valgrind ./fdf maps/100-6.fdf
 
 7:					$(NAME)
-					./fdf maps/basictest.fdf
+					valgrind ./fdf maps/basictest.fdf
 
 8:					$(NAME)
-					./fdf maps/elem-col.fdf	
+					valgrind ./fdf maps/elem-col.fdf	
 
 9:					$(NAME)
 					./fdf maps/elem-fract.fdf
 
 10:					$(NAME)
-					./fdf maps/elem.fdf	
+					valgrind ./fdf maps/elem.fdf	
 
 11:					$(NAME)
-					./fdf maps/elem2.fdf
+					valgrind ./fdf maps/elem2.fdf
 
 12:					$(NAME)
 					./fdf maps/julia.fdf
 
 13:					$(NAME)
-					./fdf maps/mars.fdf
+					valgrind ./fdf maps/mars.fdf
 
 14:					$(NAME)
-					./fdf maps/pentenegpos.fdf	
+					valgrind ./fdf maps/pentenegpos.fdf	
 				
 15:					$(NAME)
-					./fdf maps/plat.fdf	
+					valgrind ./fdf maps/plat.fdf	
 
 16:					$(NAME)
-					./fdf maps/pnp_flat.fdf		
+					valgrind ./fdf maps/pnp_flat.fdf		
 
 17:					$(NAME)
-					./fdf maps/pylone.fdf	
+					valgrind ./fdf maps/pylone.fdf	
 
 18:					$(NAME)
-					./fdf maps/pyra.fdf
+					valgrind ./fdf maps/pyra.fdf
 
 19:					$(NAME)
-					./fdf maps/pyramide.fdf		
+					valgrind ./fdf maps/pyramide.fdf		
 				
 20:					$(NAME)
 					./fdf maps/t1.fdf	

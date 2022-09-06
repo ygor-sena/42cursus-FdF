@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:29:14 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:31:11 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:07:12 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,14 @@ void	free_split(char **split)
 		x++;
 	}
 	free(split);
+}
+
+int	quit(t_fdf *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_display(data->mlx_ptr);
+	free_coord(data->map.coord, data->map.width_x);
+	free(data->mlx_ptr);
+	data->win_ptr = NULL;
+	exit(EXIT_SUCCESS);
 }

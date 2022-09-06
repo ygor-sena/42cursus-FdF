@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 18:32:01 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:32:10 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:07:06 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,4 @@ static void	reset_projection(t_fdf *data)
 	data->map.roll_x = 0;
 	data->map.pitch_y = 0;
 	data->map.yaw_z = 0;
-}
-
-int	quit(t_fdf *data)
-{
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	free_coord(data->map.coord, data->map.width_x);
-	free(data->mlx_ptr);
-	data->win_ptr = NULL;
-	exit(EXIT_SUCCESS);
 }

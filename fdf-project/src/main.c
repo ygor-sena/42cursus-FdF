@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:31:03 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:47:33 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:53:07 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,20 @@ static void	init_fdf(int argc, char *argv)
 
 static void	is_map(char *file, t_map *map)
 {
-	if (!get_file_dimension(file, map))
+	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
 	{
 		perror(INVALID_FILE);
 		exit(EXIT_FAILURE);
 	}
+	if (!get_file_dimension(map, fd))
+	{
+		perror(INVALID_SIZE);
+		exit(EXIT_FAILURE);
+	}
+	close(fd);
 }
 
 static void	init_interface(t_fdf *data)

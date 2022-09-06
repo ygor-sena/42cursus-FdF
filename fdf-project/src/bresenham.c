@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:04:47 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 19:58:08 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/07 00:19:27 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	set_plot_ref(t_bresenham *b, t_point *start, int xe, int ye);
 static void	plot_x(t_img *img, t_bresenham *b, t_point *p1, t_point *p2);
 static void	plot_y(t_img *img, t_bresenham *b, t_point *p1, t_point *p2);
+static void	img_pix_put(t_img *img, int x, int y, int color);
 
 void	bresenham(t_img *img, t_point *p1, t_point *p2)
 {
@@ -101,4 +102,14 @@ static void	plot_y(t_img *img, t_bresenham *b, t_point *p1, t_point *p2)
 		color = gradient(p1->color, p2->color, len_y, b->y0);
 		img_pix_put(img, b->x0, b->y0, color);
 	}
+}
+
+static void	img_pix_put(t_img *img, int x, int y, int color)
+{
+	char	*pixel;
+
+	if ((x < 0 || x >= MLX_WIDTH) || (y < 0 || y >= MLX_HEIGHT))
+		return ;
+	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(int *)pixel = color;
 }

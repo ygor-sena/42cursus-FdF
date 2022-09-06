@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 18:33:03 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:25:10 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:27:49 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ int	create_image(t_fdf *data)
 	return (0);
 }
 
-void	img_pix_put(t_img *img, int x, int y, int color)
+int	get_scale(t_map *map)
 {
-	char	*pixel;
+	int	area;
+	int	scale;
 
-	if ((x < 0 || x >= MLX_WIDTH) || (y < 0 || y >= MLX_HEIGHT))
-		return ;
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(int *)pixel = color;
+	area = (MLX_HEIGHT * MLX_WIDTH) / 4;
+	scale = sqrt(area / (map->length_y * map->width_x));
+	if (scale < 2)
+		return (1);
+	return (scale);
 }
 
 static void	init_img_data(t_fdf *data)

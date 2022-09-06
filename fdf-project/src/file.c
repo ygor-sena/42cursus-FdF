@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 04:56:14 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 20:27:33 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:50:14 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 static int	get_line_points(char *str);
 static void	get_coordinates(char *point, t_map *map, int x, int y);
 
-int	get_file_dimension(char *file, t_map *map)
+int	get_file_dimension(t_map *map, int fd)
 {
-	int		fd;
 	int		row_size;
 	char	*line;
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		return (0);
 	line = get_next_line(fd);
 	row_size = get_line_points(line);
 	map->length_y = 1;
@@ -39,7 +35,6 @@ int	get_file_dimension(char *file, t_map *map)
 		free(line);
 		map->length_y += 1;
 	}
-	close(fd);
 	return (1);
 }
 
@@ -108,9 +103,9 @@ static void	get_coordinates(char *point, t_map *map, int x, int y)
 	else
 	{
 		map->coord[x][y].z = ft_atoi(point);
-		if (map->coord[x][y].z == 0)
-			map->coord[x][y].color = ft_atoi_base(WHITE_PIXEL, LOW_HEX_BASE);
-		else
+		if (map->coord[x][y].z != 0 && map->is_colored == FALSE)
 			map->coord[x][y].color = ft_atoi_base(BLUE_PIXEL, LOW_HEX_BASE);
+		else
+			map->coord[x][y].color = ft_atoi_base(WHITE_PIXEL, LOW_HEX_BASE);
 	}
 }

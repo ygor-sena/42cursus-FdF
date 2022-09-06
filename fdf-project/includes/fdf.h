@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 23:12:36 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 21:10:12 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:52:09 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define INVALID_ARGS 	"Expected argument is './fdf maps/<file_name>'"
 # define INVALID_FILE 	"Check if file exists or if file formatting is correct"
+# define INVALID_SIZE	"File's map has invalid dimensions"
 # define INVALID_MEMORY "Couldn't allocate enough memory for map values"
 # define ERROR_MLX 		"Couldn't inicialize mlx_ptr"
 # define ERROR_WIN 		"Couldn't inicialize win_ptr"
@@ -122,7 +123,7 @@ t_bresenham	instance_values(t_point *p1, t_point *p2);
 void		free_coord(t_file **coord, int width_x);
 void		free_split(char **split);
 
-int			get_file_dimension(char *file, t_map *map);
+int			get_file_dimension(t_map *map, int fd);
 void		get_file_content(char *file, t_map *map);
 int			get_scale(t_map *map);
 
@@ -130,7 +131,6 @@ int			create_image(t_fdf *data);
 void		set_map(t_fdf *data, t_point *point, int i, int j);
 void		bresenham(t_img *img, t_point *p1, t_point *p2);
 int			gradient(int startcolor, int endcolor, int len, int pos);
-void		img_pix_put(t_img *img, int x, int y, int color);
 
 int			handle_keypress(int keysym, t_fdf *data);
 int			zoom_projection(int keysym, t_map *map);
