@@ -25,9 +25,7 @@ all: $(NAME)
 
 $(NAME):			$(OBJS_PATH) $(LIBFT) $(OBJS)
 					$(CC) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
-#valgrind --leak-check=full --show-leak-kinds=all --tool=memcheck --show-reachable=yes --track-origins=yes ./fdf test_maps/t1.fdf
 					
-
 $(OBJS_PATH):
 					mkdir -p $(OBJS_PATH)
 
