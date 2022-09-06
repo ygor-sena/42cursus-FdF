@@ -3,14 +3,15 @@ SRC			= 		main.c \
 					bresenham.c \
 					render.c \
 					events.c \
-					points.c \
+					file.c \
 					instance.c \
 					map.c \
 					color.c \
+					rotate.c \
+					interaction.c \
 					utils.c
 
 LIBFT		= 		./libft/libft.a
-#INCS		= 		include
 SRCS_PATH	= 		src
 OBJS_PATH	= 		obj
 SRCS		= 		$(addprefix $(SRCS_PATH)/, $(SRC))

@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:29:14 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/03 02:22:57 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:31:11 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ int	ft_abs(int nbr)
 	if (nbr < 0)
 		return (-nbr);
 	return (nbr);
-}
-
-int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
 }
 
 void	free_coord(t_file **coord, int width_x)

@@ -6,12 +6,12 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 22:12:25 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/08/27 21:27:33 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:54:14 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef OPEN_MAX
 #  define OPEN_MAX 1024

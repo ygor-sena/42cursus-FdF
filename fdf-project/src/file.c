@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   points.c                                           :+:      :+:    :+:   */
+/*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 04:56:14 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/03 01:41:11 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:27:33 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,36 @@
 
 static int	get_line_points(char *str);
 static void	get_coordinates(char *point, t_map *map, int x, int y);
-//CHECK: get_coordinates will be static?
 
-int	get_width(char *file)
+int	get_file_dimension(char *file, t_map *map)
 {
 	int		fd;
-	int		length;
 	int		row_size;
 	char	*line;
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (0); //ERROR: FILE COUNDN'T BE OPENED
+		return (0);
 	line = get_next_line(fd);
 	row_size = get_line_points(line);
+	map->length_y = 1;
 	free(line);
 	while (TRUE)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		length = get_line_points(line);
-		if (row_size != length)
-			return (free(line), -1); //ERROR: INVALID MAP FORMATTING
+		map->width_x = get_line_points(line);
+		if (row_size != map->width_x)
+			return (free(line), 0);
 		free(line);
+		map->length_y += 1;
 	}
 	close(fd);
-	return (length);
+	return (1);
 }
 
-int	get_length(char *file)
-{
-	int		fd;
-	int		row;
-	char	*line;
-
-	row = 0;
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		return (0); //ERROR: FILE COUNDN'T BE OPENED
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		free(line);
-		row++;
-	}
-	close(fd);
-	return (row);
-}
-
-void	fill_axes(char *file, t_map *map)
+void	get_file_content(char *file, t_map *map)
 {
 	int		fd;
 	int		x;
@@ -130,7 +108,9 @@ static void	get_coordinates(char *point, t_map *map, int x, int y)
 	else
 	{
 		map->coord[x][y].z = ft_atoi(point);
-		//Set a standard color for z? INTERESTING!
-		map->coord[x][y].color = -1;
+		if (map->coord[x][y].z == 0)
+			map->coord[x][y].color = ft_atoi_base(WHITE_PIXEL, LOW_HEX_BASE);
+		else
+			map->coord[x][y].color = ft_atoi_base(BLUE_PIXEL, LOW_HEX_BASE);
 	}
 }
