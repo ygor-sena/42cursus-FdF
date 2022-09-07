@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:31:03 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/08/19 00:16:21 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/01 19:05:48 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <math.h>
 
 #define WIDTH 500
 #define HEIGHT 500
@@ -29,6 +30,7 @@
 #define WHITE_PIXEL 0xFFFFFF
 #define ORANGE_PIXEL 0xFCC203
 #define BLUE_PIXEL 0x033DFC
+#define LOW_HEX_BASE "0123456789abcdef"
 
 typedef struct s_img
 {
@@ -50,6 +52,7 @@ typedef struct s_point
 {
 	int	x;
 	int	y;
+	int	color;
 }	t_point;
 
 typedef struct s_line
@@ -59,12 +62,13 @@ typedef struct s_line
 	int		color;
 }	t_line;
 
-t_point	set_point(int x, int y)
+t_point	set_point(int x, int y, int color)
 {
 	t_point	point;
 
 	point.x = x;
 	point.y = y;
+	point.color = color;
 	return (point);
 }
 
@@ -72,6 +76,7 @@ void	bresenham(t_img *img, t_line line);
 
 int	render_line(t_img *img, t_line line)
 {
+	
 	bresenham(img, line);
 	return (0);
 }
@@ -106,8 +111,17 @@ int	render(t_data *data)
 {
 	if (data->win_ptr == NULL)
 		return (1);
-	render_line(&data->img, (t_line){set_point(400, 100), set_point(400, 400), WHITE_PIXEL});
-	render_line(&data->img, (t_line){set_point(100, 100), set_point(400, 100), WHITE_PIXEL});
+	int area;
+	int	scale;
+	area = (HEIGHT * WIDTH) / 4;
+	scale = sqrt(area / (10 + 15));
+	/* i = (WIDTH * 0.25) / 7;
+	H = U*(Nr+Nc)/2 */
+	//i = ((10 + 5)* WIDTH) * 0.5;
+	
+	render_line(&data->img, (t_line){set_point(0, 0, 255), set_point(400, 400, 16711680), 0});
+	//render_line(&data->img, (t_line){set_point(0, 100), set_point(scale, 100), WHITE_PIXEL});
+	/* render_line(&data->img, (t_line){set_point(100, 100), set_point(400, 100), WHITE_PIXEL});
 	render_line(&data->img, (t_line){set_point(100, 400), set_point(400, 400), WHITE_PIXEL});
 	render_line(&data->img, (t_line){set_point(100, 100), set_point(100, 400), WHITE_PIXEL});
 
@@ -125,7 +139,7 @@ int	render(t_data *data)
 	render_line(&data->img, (t_line){set_point(250, 250), set_point(100, 300), GREEN_PIXEL});
 	render_line(&data->img, (t_line){set_point(250, 250), set_point(300, 100), ORANGE_PIXEL});
 	render_line(&data->img, (t_line){set_point(250, 250), set_point(400, 200), ORANGE_PIXEL});
-	render_line(&data->img, (t_line){set_point(250, 250), set_point(200, 400), BLUE_PIXEL});
+	render_line(&data->img, (t_line){set_point(250, 250), set_point(200, 400), BLUE_PIXEL}); */
 
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
 	return (0);

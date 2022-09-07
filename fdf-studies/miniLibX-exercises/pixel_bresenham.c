@@ -6,7 +6,7 @@
 /*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:04:47 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/08/19 21:23:40 by yde-goes         ###   ########.fr       */
+/*   Updated: 2022/09/01 19:13:04 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct s_point
 {
 	int	x;
 	int	y;
+	int color;
 }	t_point;
 
 typedef struct s_img
@@ -49,6 +50,54 @@ typedef struct s_bresenham
 	int	ye;
 }	t_bresenham;
 
+#define LOW_HEX_BASE "0123456789abcdef"
+
+int	get_red(int color)
+{
+	return (color >> 16);
+}
+
+int	get_green(int color)
+{
+	return (color >> 8 & 0xFF);
+}
+
+int	get_blue(int color)
+{
+	return (color & 0xFF);
+}
+
+int	get_rgb(int red, int green, int blue)
+{
+	return (((red) << 16) + ((green) << 8) + (blue));
+}
+
+int	ft_round(double num)
+{
+	int rounded;
+
+	rounded = (int)num;
+	if (num - rounded >= .5)
+		rounded++;
+	return (rounded);
+}
+
+int	gradient(int startcolor, int endcolor, int len, int pos)
+{
+	float	increment[3];
+	int		new[3];
+	int		newcolor;
+
+	increment[0] = (float)((get_red(endcolor)) - (get_red(startcolor))) / (float)len;
+	increment[1] = (float)((get_green(endcolor)) - (get_green(startcolor))) / (float)len;
+	increment[2] = (float)((get_blue(endcolor)) - (get_blue(startcolor))) / (float)len;
+	new[0] = (get_red(startcolor)) + ft_round(pos * increment[0]);
+	new[1] = (get_green(startcolor)) + ft_round(pos * increment[1]);
+	new[2] = (get_blue(startcolor)) + ft_round(pos * increment[2]);
+	newcolor = get_rgb(new[0], new[1], new[2]);
+	return (newcolor);
+}
+
 t_bresenham	set_variables(t_line line);
 void		set_plot_ref(t_bresenham *b, t_point start, int xe, int ye);
 void		plot_x(t_img *img, t_bresenham *b, t_line line);
@@ -60,6 +109,10 @@ void	bresenham(t_img *img, t_line line)
 	t_bresenham	b;
 
 	b = set_variables(line);
+	if (line.start.color != line.start.color)
+
+	else
+		line.color = line.start.color;
 	if (b.dy1 <= b.dx1)
 	{
 		if (b.dx >= 0)
@@ -122,8 +175,10 @@ void	set_plot_ref(t_bresenham *b, t_point start, int xe, int ye)
 void	plot_x(t_img *img, t_bresenham *b, t_line line)
 {
 	int	i;
+	int diff_line;
 
 	i = 0;
+	diff_line = max(abs(b->x0), b->xe);
 	img_pix_put(img, b->x0, b->y0, line.color);
 	while (b->x0 < b->xe)
 	{
