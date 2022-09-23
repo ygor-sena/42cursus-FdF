@@ -19,7 +19,8 @@ S_FILES_BONUS	=	ft_printf_bonus.c \
 
 SRC_OBJ		= $(subst src, obj, $(SRCS:.c=.o))
 
-CFLAGS		= -Wall -Wextra -Werror
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -O3
 RM			= rm -rf
 
 all:		$(NAME)

@@ -14,7 +14,7 @@ SRCS_BONUS	= 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 				ft_lstiter.c ft_lstmap.c
 
 CC			= 	cc
-CC_FLAGS	= 	-Wall -Werror -Wextra
+CC_FLAGS	= 	-Wall -Werror -Wextra -O3
 RM			= 	rm -rf
 
 NAME		= 	libft.a

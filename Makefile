@@ -17,7 +17,7 @@ OBJS_PATH	= 		obj
 SRCS		= 		$(addprefix $(SRCS_PATH)/, $(SRC))
 OBJS		= 		$(addprefix $(OBJS_PATH)/, $(SRC:.c=.o))
 
-CC			= 		cc -Wall -Wextra -Werror -g
+CC			= 		cc -Wall -Wextra -Werror -O3
 MLX			= 		-lmlx -lXext -lX11 -lm 
 RM			= 		rm -rf
 
