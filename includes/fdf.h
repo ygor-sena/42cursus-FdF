@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 23:12:36 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 23:52:09 by yde-goes         ###   ########.fr       */
+/*   Updated: 2023/01/28 10:38:27 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <stdio.h>
 # include <math.h>
-# include <mlx.h>
+# include "../minilibx/mlx.h"
 # include "../libft/libft.h"
-# include "./events.h"
+# include "events.h"
 
 # define INVALID_ARGS 	"Expected argument is './fdf maps/<file_name>'"
 # define INVALID_FILE 	"Check if file exists or if file formatting is correct"

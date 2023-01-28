@@ -18,13 +18,14 @@ SRCS		= 		$(addprefix $(SRCS_PATH)/, $(SRC))
 OBJS		= 		$(addprefix $(OBJS_PATH)/, $(SRC:.c=.o))
 
 CC			= 		cc -Wall -Wextra -Werror -O3
-MLX			= 		-lmlx -lXext -lX11 -lm 
+#MLX			= 		-lmlx -lXext -lX11 -lm 
+MLX_LIB		=		./minilibx/libmlx.a -lXext -lX11 -lm 
 RM			= 		rm -rf
 
 all: $(NAME)
 
 $(NAME):			$(OBJS_PATH) $(LIBFT) $(OBJS)
-					$(CC) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
+					$(CC) $(OBJS) $(LIBFT) $(MLX_LIB) -o $(NAME)
 					
 $(OBJS_PATH):
 					mkdir -p $(OBJS_PATH)
