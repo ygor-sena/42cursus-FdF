@@ -54,7 +54,7 @@ make 11
 
 | Key | Command |
 |:----|:----|
-| <kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd>  |  Move the map to left, up, down and right. |
+| <kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd>  |  Moves the map to left, up, down and right. |
 | <kbd>Esc</kbd>  | Closes the program.  |
 | <kbd>-</kbd><kbd>+</kbd>  | Zooms the maps out and in. |
 | <kbd>Z</kbd><kbd>X</kbd>  | Increases and decreases map altitude. |
