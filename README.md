@@ -14,7 +14,7 @@ The fifth project of 42 curriculum introduces students to the fundamentals of gr
 
 ## Project diagram
 
-Since the project in quite big, the diagram bellow helps to get an overview of the whole project. Each `.c` file has functions that can be global or static, which means respectively the functions in red and blue. As you can see, the core of the project corresponds to five files:
+Since the project in quite big, the diagram below helps to get an overview of the whole project. Each `.c` file has functions that can be global or static, which means respectively the functions in red and blue. As you can see, the core of the project corresponds to five files:
 
 - `fdf.h`: contains all the necessary functions and helpers to be called by the program.
 - `instance.c`: inicializes all variables necessary to render the map.
@@ -44,7 +44,7 @@ make
 ./fdf maps/10-2.fdf
 ```
 
-You can also run `make` and a number between 1 and 21 as a shortkey to render the files in folder `maps` with valgrind to check for memory leaks. For example, the command bellow is equivalent to `valgrind ./fdf maps/elem2.fdf`. To see other commands with `make`, refer to `Makefile`.
+You can also run `make` and a number between 1 and 21 as a shortkey to render the files in folder `maps` with valgrind to check for memory leaks. For example, the command below is equivalent to `valgrind ./fdf maps/elem2.fdf`. To see other commands with `make`, refer to `Makefile`.
 
 ```
 make 11
