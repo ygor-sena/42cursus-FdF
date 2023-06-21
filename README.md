@@ -9,10 +9,10 @@
     <img src="https://img.shields.io/badge/Status-Completed-brightgreen.svg" alt="Status">
 </p>
 
-## Introduction
+## 📣 Introduction
 The fifth project of 42 curriculum introduces students to the fundamentals of graphic programming with [MiniLibX](https://github.com/42Paris/minilibx-linux). This project is about representing a landscape as a 3D object in which all surfaces are outlined in lines. FdF is short for _fil de fer_ in French which means wireframe model.
 
-## Project diagram
+## 💭 Project diagram
 
 Since the project in quite big, the diagram below helps to get an overview of the whole project. Each `.c` file has functions that can be global or static, which means respectively the functions in red and blue. As you can see, the core of the project corresponds to five files:
 
@@ -24,7 +24,7 @@ Since the project in quite big, the diagram below helps to get an overview of th
 
 ![FdF_diagram](https://user-images.githubusercontent.com/102881479/215330949-aed990c5-4f30-4580-8109-5b49050e9280.jpg)
 
-## How to compile and run the project
+## ⚒️ How to compile and run the project
 
 #### 1) Copy this repository to your local workstation
 
@@ -50,7 +50,7 @@ You can also run `make` and a number between 1 and 21 as a shortkey to render th
 make 11
 ```
 
-## How to use the project
+## 💡 How to use the project
 
 | Key | Command |
 |:----|:----|
@@ -66,7 +66,7 @@ make 11
 | <kbd>R</kbd>  |  Resets the map to its original state. |
 
 
-## References
+## 📖 References
 
 - General references:
     - [Introduction to isometric projection in games](https://pikuma.com/blog/isometric-projection-in-games) by [Pikuma](https://www.youtube.com/@pikuma).
