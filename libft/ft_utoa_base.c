@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:46:27 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/07/16 16:16:49 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:58:18 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ static size_t	count_base_digit(unsigned long nbr, size_t base)
 	{
 		nbr /= base;
 		digits++;
-	}	
+	}
 	return (digits);
 }

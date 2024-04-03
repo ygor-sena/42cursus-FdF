@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_format.c                                   :+:      :+:    :+:   */
+/*   ft_sort_format_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 01:27:59 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/07/22 04:48:36 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:57:06 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_check_parse(t_flag flag)
 	{
 		if ((flag.spec != 'x' || flag.spec != 'X')
 			|| (flag.sign || flag.space))
-		flag.error = TRUE;
+			flag.error = TRUE;
 	}
 	if (flag.sign && flag.space)
 		flag.space = FALSE;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 00:59:28 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/06/27 16:15:28 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:58:28 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		if (*cast_s == (t_byte) c)
 			return ((void *) cast_s);
 		cast_s++;
-	}	
+	}
 	return (NULL);
 }

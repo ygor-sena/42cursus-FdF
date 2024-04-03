@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:47:28 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/06/24 18:04:57 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:57:58 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_itoa(int n)
 		str_n[len_n - 1] = n % 10 + '0';
 		n /= 10;
 		len_n--;
-	}	
+	}
 	if (neg == 1)
 		str_n[len_n] = '-';
 	return (str_n);

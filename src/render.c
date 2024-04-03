@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 18:33:03 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 23:27:49 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:58:39 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	init_map_plot(t_fdf *data, t_point *p1, t_point *p2)
 			{
 				set_map(data, p2, i, j + 1);
 				bresenham(&data->img, p1, p2);
-			}	
+			}
 			if (i + 1 < data->map.width_x)
 			{
 				set_map(data, p2, i + 1, j);

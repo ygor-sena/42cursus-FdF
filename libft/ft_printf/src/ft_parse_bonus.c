@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_parse_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 17:31:06 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/07/22 04:48:30 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:57:14 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf_bonus.h"
 
 void	ft_parse_hexa(t_format *input, t_flag flag, char *str_nbr)
-{	
+{
 	if (*str_nbr == '0')
 		flag.hashtag = FALSE;
 	else if (flag.hashtag && input->format[input->index] == 'x')

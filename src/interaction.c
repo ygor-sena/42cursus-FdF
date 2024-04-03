@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   interaction.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yde-goes <yde-goes@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: yde-goes <yde-goes@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 19:47:09 by yde-goes          #+#    #+#             */
-/*   Updated: 2022/09/06 19:48:40 by yde-goes         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:58:45 by yde-goes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 int	zoom_projection(int keysym, t_map *map)
-{	
+{
 	if (keysym == KEY_MINUS)
 		map->scale_factor = map->scale_factor - 1;
 	else
