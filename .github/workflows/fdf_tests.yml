@@ -29,7 +29,7 @@ jobs:
       - name: Set up norminette
         run: |
           python3 -m pip install --upgrade pip setuptools
-          python3 -m pip install norminette
+          python3 -m pip install norminette==3.3.55
   
       - name: Run norminette validation
         run: norminette src libft includes
